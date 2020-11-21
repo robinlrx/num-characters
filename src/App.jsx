@@ -4,9 +4,9 @@ import {Provider} from './Provider';
 
 function App() {
   return (
-      <Provider>
-          <Nav></Nav>
-      </Provider> 
+        <Provider>
+            <Nav></Nav>
+        </Provider> 
   );
 }
 

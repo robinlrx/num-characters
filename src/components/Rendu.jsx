@@ -1,20 +1,22 @@
 import React, {useContext, useReducer} from 'react';
 import {ProviderContext} from '../Provider';
+import Liste from '../styles/Liste';
 
 function Rendu(props) {
 
     const [state, dispatch] = useContext(ProviderContext);
     console.log('composant rendu')
-    console.log('le message')
-    console.log(state.message)
-    
+    console.log(state)
+    const listMessages = state.message;
+    const myStyle = {
+        color: 'red',
+    }
     return (
-        <div>
-            <h2>Page rendu</h2>
-            <ul>
-                <li>{state.message}</li>
-            </ul>
-        </div>
+        <>
+            <Liste>
+                <li style={myStyle}>{listMessages}</li>
+            </Liste>
+        </>
     );
 }
 

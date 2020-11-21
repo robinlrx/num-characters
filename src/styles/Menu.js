@@ -5,17 +5,19 @@ import styled from "styled-components";
         display: flex;
         justify-content: start;
         aligin-items: center;
-        background-color: #34495e;
+        background-color: #4200ff;
 
         a{
             text-decoration: none;
             font-weight: bold;
-            color: white;
+            color: #fdeee1;
             font-size: 1rem;
             margin: 10px;
+            padding: 10px 30px;
 
             &:hover {
-              color: #f1c40f
+              color: #4200ff;
+              background-color: #fdeee1;
             }
         }
     `;
