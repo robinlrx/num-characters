@@ -1,21 +1,32 @@
 const initialState = {
     messages: [],
-    message: ''
+    message: '',
+    // colors: [],
+    // color: ''
 };
 
 const reducer = (state, action) => {
 
     switch (action.type) {
-        case 'AJOUTER':
-            console.log('ajouter');
-            const message = {
-                messages: state.messages.concat(state.message),
-                message: ''
-            }
-            console.log(message)
-            return {...state, messages: state.messages.concat(message)};
         case 'SET_MESSAGE':
-            return {...state, message: action.message}
+            return {
+                ...state, message: action.message,
+            }
+
+        // case 'SET_COLOR':
+        //     return {
+        //         ...state, color: action.color,
+        //     }
+
+        case 'AJOUTER':
+            // console.log(state)
+            return {...state, messages: state.messages.concat(state.message),
+                message: '',
+                // ...state, colors: state.colors.concat(state.color),
+                // color: ''
+            };
+        case 'DELETE':
+            return {...state};
         default:
             return state;
     }

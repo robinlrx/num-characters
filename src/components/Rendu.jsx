@@ -1,21 +1,30 @@
-import React, {useContext, useReducer} from 'react';
+import React, {useContext} from 'react';
 import {ProviderContext} from '../Provider';
 import Liste from '../styles/Liste';
 
 function Rendu(props) {
 
     const [state, dispatch] = useContext(ProviderContext);
+    const {message} = state;
+    // const {color} = state.colors;
     console.log('composant rendu')
-    console.log(state)
-    const listMessages = state.message;
-    const myStyle = {
-        color: 'red',
-    }
+    const messages = state.messages.map( message =>
+        <li>{state.messages}<br/></li>
+    );
+    // console.log(state.colors)
+
+    // const Style = {
+    //     color: `${state.colors}`,
+    // }
+
     return (
         <>
+            <div>
             <Liste>
-                <li style={myStyle}>{listMessages}</li>
+                {/* <li style={Style}>{state.message}</li> */}
+                <li>{messages}</li>
             </Liste>
+            </div>
         </>
     );
 }

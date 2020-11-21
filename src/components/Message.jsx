@@ -8,9 +8,11 @@ import WrapperMessage from '../styles/WrapperMessage';
 function Message(props) {
     const [state, dispatch] = useContext(ProviderContext);
     const {message} = state;
+    // const {color} = state;
+    
 
-    const motLength = (mot) => 
-        mot
+    const motLength = (message) => 
+        message
         .split(' ')
         .map( word => word.length)
         .filter(number => number != 0) +'\n';
@@ -19,11 +21,14 @@ function Message(props) {
         dispatch({type: 'SET_MESSAGE', message: e.target.value })
     };
 
+    // function onThemeChange(e) {
+    //     dispatch({type:'SET_COLOR', color: e.target.value});
+    //  }
+
     function handleSubmit(e) {
         e.preventDefault();
         dispatch({type: 'AJOUTER'})
     };
-
     return (
         <WrapperMessage>
             <Form onSubmit={handleSubmit}>
@@ -32,16 +37,11 @@ function Message(props) {
                     <p>Nombre de lettres : <strong>{motLength(message)}</strong></p>
                 }
                 <p><input type="text" onChange={onInputChange} value={message}/></p>
-                <p><label>Selectionner un rendu : </label></p>
-                <select>
+                {/* <p><label>Selectionner un rendu : </label></p>
+                <select value={color} defaultValue = 'palevioletred' onChange={onThemeChange}>
                     <option value="palevioletred">palevioletred</option>
                     <option value="red">red</option>
-                </select>
-                <p><label>Taille du texte : </label></p>
-                <select>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                </select>
+                </select> */}
                 <Button>Valider</Button>
             </Form>
         </WrapperMessage>
